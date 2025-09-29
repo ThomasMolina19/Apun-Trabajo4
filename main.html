@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CitaMaster Pro — Domina las Normas APA 7 y Más</title>
+  <meta name="description" content="La guía definitiva e interactiva para dominar APA 7ª edición, MLA, Chicago, IEEE y Vancouver. Aprende con ejemplos animados, herramientas prácticas y ejercicios gamificados." />
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --primary-dark: #4f46e5;
+      --secondary: #14b8a6;
+      --accent: #f59e0b;
+      --danger: #ef4444;
+      --success: #10b981;
+      --warning: #f59e0b;
+      
+      --bg-primary: #0f0f1e;
+      --bg-secondary: #1a1a2e;
+      --bg-card: #16213e;
+      --bg-hover: #1e2a4a;
+      
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      
+      --border: rgba(148, 163, 184, 0.1);
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.25);
+      --shadow-glow: 0 0 50px rgba(99, 102, 241, 0.3);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+      z-index: -1;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.1); }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+      border-radius: var(--radius-xl);
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl), var(--shadow-glow);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      opacity: 0.05;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(0.8); opacity: 0.05; }
+      50% { transform: scale(1.2); opacity: 0.1; }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    .hero-description {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    /* Action Buttons */
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 16px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(148, 163, 184, 0.1);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(148, 163, 184, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Navigation Pills */
+    .nav-pills {
+      display: flex;
+      gap: 8px;
+      padding: 8px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      margin-bottom: 24px;
+      overflow-x: auto;
+      flex-wrap: wrap;
+    }
+
+    .nav-pill {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      background: transparent;
+      color: var(--text-secondary);
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-pill:hover {
+      background: rgba(148, 163, 184, 0.1);
+    }
+
+    .nav-pill.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+    }
+
+    .card:hover::before {
+      transform: translateX(0);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Grid Layouts */
+    .grid {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .grid-cols-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-cols-3 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .grid-cols-4 {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    /* Code Examples */
+    .code-example {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin: 16px 0;
+      position: relative;
+      font-family: 'Courier New', monospace;
+    }
+
+    .code-example pre {
+      margin: 0;
+      color: var(--text-primary);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .copy-btn:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    .copy-btn.copied {
+      background: var(--success);
+    }
+
+    /* Interactive Elements */
+    .tab-content {
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Feature List */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 12px 0;
+      padding-left: 32px;
+      position: relative;
+      color: var(--text-secondary);
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, var(--success), var(--secondary));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* Quiz Section */
+    .quiz-container {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin: 48px 0;
+    }
+
+    .quiz-question {
+      background: var(--bg-secondary);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+
+    .quiz-question.correct {
+      border-color: var(--success);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .quiz-question.incorrect {
+      border-color: var(--danger);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .quiz-option {
+      display: block;
+      padding: 12px;
+      margin: 8px 0;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .quiz-option:hover {
+      background: var(--bg-hover);
+      border-color: var(--primary);
+    }
+
+    .quiz-option input[type="radio"] {
+      margin-right: 12px;
+    }
+
+    /* Progress Bar */
+    .progress-bar {
+      background: var(--bg-secondary);
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.5s ease;
+      border-radius: 4px;
+    }
+
+    /* Tooltips */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+      color: var(--primary-light);
+      text-decoration: underline dotted;
+    }
+
+    .tooltip-content {
+      visibility: hidden;
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      white-space: nowrap;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tooltip:hover .tooltip-content {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Accordion */
+    .accordion {
+      margin: 24px 0;
+    }
+
+    .accordion-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    .accordion-header:hover {
+      background: var(--bg-hover);
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 1000px;
+      padding: 0 20px 20px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-primary {
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--primary-light);
+    }
+
+    .badge-success {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--success);
+    }
+
+    .badge-warning {
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--warning);
+    }
+
+    .badge-danger {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+    }
+
+    /* Stats Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* Interactive Generator */
+    .generator-container {
+      background: var(--bg-card);
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      margin: 40px 0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 12px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-light);
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .slide-up {
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-description {
+        font-size: 1rem;
+      }
+      
+      .nav-pills {
+        flex-direction: column;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      
+      .btn, .copy-btn, .nav-pills {
+        display: none;
+      }
+      
+      .card {
+        break-inside: avoid;
+      }
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      border: 3px solid var(--bg-secondary);
+      border-top: 3px solid var(--primary);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Notification Toast */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 16px 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xl);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.success {
+      border-color: var(--success);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .toast.error {
+      border-color: var(--danger);
+      background: rgba(239, 68, 68, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-badge">
+        <span>🚀</span>
+        <span>Versión 2025</span>
+      </div>
+      <h1>CitaMaster Pro</h1>
+      <p class="hero-description">
+        La plataforma definitiva para dominar las normas de citación académica. 
+        Aprende APA 7ª edición, MLA, Chicago, IEEE y Vancouver con herramientas 
+        interactivas, ejemplos en tiempo real y ejercicios gamificados.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="scrollToSection('start')">
+          <span>🎯</span>
+          <span>Comenzar ahora</span>
+        </button>
+        <button class="btn btn-secondary" onclick="openGenerator()">
+          <span>⚡</span>
+          <span>Generador de citas</span>
+        </button>
+        <button class="btn btn-secondary" onclick="window.print()">
+          <span>📄</span>
+          <span>Imprimir guía</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Stats Section -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Estilos de citación</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Ejemplos prácticos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Interactivo</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Acceso ilimitado</div>
+      </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <section id="start">
+      <h2 style="text-align: center; margin: 48px 0 24px; font-size: 2rem;">
+        ¿Por qué es crucial citar correctamente?
+      </h2>
+      
+      <div class="grid grid-cols-3">
+        <div class="card">
+          <div class="card-icon">🛡️</div>
+          <h3>Integridad académica</h3>
+          <p>Evita el plagio y demuestra honestidad intelectual. Las citas son tu escudo contra acusaciones de deshonestidad académica.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔍</div>
+          <h3>Verificabilidad</h3>
+          <p>Permite que otros verifiquen tus fuentes y profundicen en el tema. La transparencia fortalece tu credibilidad.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏆</div>
+          <h3>Profesionalismo</h3>
+          <p>Demuestra dominio de las convenciones académicas y aumenta el impacto de tu trabajo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APA Section -->
+    <section class="card" style="margin: 48px 0;">
+      <h2 style="font-size: 1.75rem; margin-bottom: 24px;">
+        📘 Normas APA 7ª Edición - Guía completa
+      </h2>
+      
+      <div class="nav-pills">
+        <button class="nav-pill active" onclick="showTab('apa', 'basics')">Fundamentos</button>
+        <button class="nav-pill" onclick="showTab('apa', 'intext')">Citas en texto</button>
+        <button class="nav-pill" onclick="showTab('apa', 'references')">Referencias</button>
+        <button class="nav-pill" onclick="showTab('apa', 'format')">Formato</button>
+        <button class="nav-pill" onclick="showTab('apa', 'examples')">Ejemplos</button>
+      </div>
+
+      <div id="apa-basics" class="tab-pane active">
+        <h3>Fundamentos de APA</h3>
+        <p>APA (American Psychological Association) es el estilo más usado en ciencias sociales, psicología y educación.</p>
+        
+        <div class="grid grid-cols-2" style="margin-top: 20px;">
+          <div>
+            <h4>Principios clave:</h4>
+            <ul class="feature-list">
+              <li>Sistema autor-fecha para citas</li>
+              <li>Lista de referencias al final (no bibliografía)</li>
+              <li>DOI siempre que esté disponible</li>
+              <li>Formato consistente y profesional</li>
+              <li>Énfasis en la claridad y precisión</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Cuándo usar APA:</h4>
+            <ul class="feature-list">
+              <li>Trabajos de psicología y ciencias sociales</li>
+              <li>Investigaciones educativas</li>
+              <li>Estudios de comportamiento humano</li>
+              <li>Artículos científicos</li>
+              <li>Tesis y disertaciones académicas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="apa-intext" class="tab-pane">
+        <h3>Citas en el texto</h3>
+        
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Cita narrativa (autor como sujeto)</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Formato:</strong> Autor (año) + información adicional</p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>Smith (2023) encontró que los estudiantes mejoran su rendimiento cuando usan técnicas de citación adecuadas.</pre>
+              </div>
+              <p><strong>Con página específica:</strong></p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>García (2024) afirma que "las citas correctas son fundamentales" (p. 45).</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Cita parentética (entre paréntesis)</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Formato:</strong> (Autor, año) o (Autor, año, p. X)</p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>Los estudios recientes muestran mejoras significativas (Johnson, 2023).</pre>
+              </div>
+              <p><strong>Con cita textual:</strong></p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>"La investigación académica requiere precisión absoluta" (Chen & Liu, 2024, p. 127).</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Múltiples autores</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Dos autores:</strong> Use "&" en paréntesis, "y" en texto narrativo</p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>• Narrativa: Martinez y Rodriguez (2023) demuestran...
+• Parentética: Los resultados son concluyentes (Martinez & Rodriguez, 2023).</pre>
+              </div>
+              
+              <p><strong>Tres o más autores:</strong> Use "et al." después del primer autor</p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>• Primera cita: (Smith, Jones, Brown, & Davis, 2023)
+• Citas posteriores: (Smith et al., 2023)</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Casos especiales</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Sin autor:</strong> Use título abreviado</p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>("Título del artículo," 2023, p. 15)</pre>
+              </div>
+              
+              <p><strong>Mismo autor, mismo año:</strong> Use letras minúsculas</p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>(García, 2023a) y (García, 2023b)</pre>
+              </div>
+
+              <p><strong>Comunicación personal:</strong></p>
+              <div class="code-example">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>J. Smith (comunicación personal, 15 de enero, 2024)</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="apa-references" class="tab-pane">
+        <h3>Lista de Referencias</h3>
+        <p>La lista de referencias aparece en orden alfabético al final del documento.</p>
+        
+        <div class="grid grid-cols-2">
+          <div>
+            <h4>📚 Libro impreso</h4>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Apellido, A. A. (Año). Título del libro. Editorial.</pre>
+            </div>
+            <p><strong>Ejemplo:</strong></p>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>García, M. (2023). Metodología de la investigación académica. Pearson.</pre>
+            </div>
+          </div>
+          
+          <div>
+            <h4>📖 Capítulo de libro</h4>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Apellido, A. A. (Año). Título del capítulo. En B. B. Editor (Ed.), Título del libro (pp. X-Y). Editorial.</pre>
+            </div>
+            <p><strong>Ejemplo:</strong></p>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>López, C. (2024). Técnicas avanzadas de citación. En R. Smith (Ed.), Manual de escritura académica (pp. 150-175). McGraw-Hill.</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2" style="margin-top: 24px;">
+          <div>
+            <h4>📄 Artículo de revista</h4>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Apellido, A. A. (Año). Título del artículo. Nombre de la Revista, Volumen(Número), páginas. https://doi.org/...</pre>
+            </div>
+            <p><strong>Ejemplo:</strong></p>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Chen, L., & Wang, X. (2023). Impact of proper citation practices on academic success. Journal of Educational Research, 45(3), 234-251. https://doi.org/10.1080/00220671.2023.123456</pre>
+            </div>
+          </div>
+          
+          <div>
+            <h4>🌐 Página web</h4>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Apellido, A. A. (Año, Mes día). Título de la página. Nombre del sitio. URL</pre>
+            </div>
+            <p><strong>Ejemplo:</strong></p>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Rodriguez, P. (2024, enero 15). Guía completa de citación APA. Academia Escritura. https://www.academiaescritura.com/apa-guide</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2" style="margin-top: 24px;">
+          <div>
+            <h4>📺 Video de YouTube</h4>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Canal. (Año, Mes día). Título del video [Video]. YouTube. URL</pre>
+            </div>
+            <p><strong>Ejemplo:</strong></p>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>EduTech Channel. (2024, marzo 10). Cómo citar correctamente en APA [Video]. YouTube. https://www.youtube.com/watch?v=example</pre>
+            </div>
+          </div>
+          
+          <div>
+            <h4>📊 Base de datos</h4>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Apellido, A. A. (Año). Título del artículo. Revista, Vol(Núm), páginas. Base de datos.</pre>
+            </div>
+            <p><strong>Ejemplo:</strong></p>
+            <div class="code-example">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre>Thomson, K. (2023). Digital citation methods. Academic Journal, 12(4), 89-105. PsycINFO.</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="apa-format" class="tab-pane">
+        <h3>Formato del documento</h3>
+        
+        <div class="grid grid-cols-2">
+          <div class="card">
+            <h4>📝 Formato general</h4>
+            <ul class="feature-list">
+              <li>Fuente: Times New Roman 12pt</li>
+              <li>Interlineado: Doble espacio</li>
+              <li>Márgenes: 2.54 cm (1 pulgada)</li>
+              <li>Alineación: Izquierda</li>
+              <li>Sangría: 1.27 cm primera línea</li>
+              <li>Color: Negro sobre fondo blanco</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <h4>📋 Elementos requeridos</h4>
+            <ul class="feature-list">
+              <li>Página de título</li>
+              <li>Encabezados de página</li>
+              <li>Números de página (esquina superior derecha)</li>
+              <li>Lista de referencias</li>
+              <li>Títulos y subtítulos jerárquicos</li>
+              <li>DOI o URL cuando aplique</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 32px;">🏗️ Estructura de niveles de títulos</h4>
+        <div class="code-example">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre>Nivel 1: Centrado, Negrita, Mayúsculas y Minúsculas
+Nivel 2: Alineado a la Izquierda, Negrita, Mayúsculas y Minúsculas  
+Nivel 3: Sangrado, negrita, minúsculas, punto final.
+Nivel 4: Sangrado, negrita, cursiva, minúsculas, punto final.
+Nivel 5: Sangrado, cursiva, minúsculas, punto final.</pre>
+        </div>
+
+        <h4 style="margin-top: 24px;">📄 Página de título</h4>
+        <div class="code-example">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre>Título del Trabajo en Mayúsculas y Minúsculas y Centrado
+
+Nombre del Autor
+Afiliación Institucional
+Nota del Autor (si aplica)
+
+Fecha</pre>
+        </div>
+
+        <h4 style="margin-top: 24px;">📊 Tablas y figuras</h4>
+        <p>Las tablas y figuras deben numerarse consecutivamente y tener títulos descriptivos.</p>
+        <div class="code-example">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre>Tabla 1
+Resultados de la Investigación sobre Métodos de Citación
+
+Figura 1. Gráfico de barras mostrando preferencias de estilo de citación.</pre>
+        </div>
+      </div>
+
+      <div id="apa-examples" class="tab-pane">
+        <h3>Ejemplos completos y ejercicios</h3>
+        
+        <div class="quiz-container">
+          <h4>🎯 Ejercicio interactivo 1</h4>
+          <p>Selecciona el formato correcto para esta cita APA:</p>
+          <p><strong>Información:</strong> Libro de María García, publicado en 2023, título "Investigación Moderna", editorial Pearson</p>
+          
+          <div class="quiz-question" id="quiz1">
+            <label class="quiz-option">
+              <input type="radio" name="q1" value="a">
+              García, M. (2023). "Investigación Moderna". Pearson.
+            </label>
+            
+            <label class="quiz-option">
+              <input type="radio" name="q1" value="b">
+              García, M. (2023). Investigación moderna. Pearson.
+            </label>
+            
+            <label class="quiz-option">
+              <input type="radio" name="q1" value="c">
+              García, María. (2023). Investigación Moderna. Pearson.
+            </label>
+          </div>
+          
+          <button class="btn btn-primary" onclick="checkQuiz('quiz1', 'b')">Verificar respuesta</button>
+          <div id="quiz1-feedback" style="margin-top: 15px; display: none;"></div>
+        </div>
+
+        <div class="quiz-container" style="margin-top: 32px;">
+          <h4>🎯 Ejercicio interactivo 2</h4>
+          <p>¿Cuál es la cita en texto correcta para dos autores?</p>
+          <p><strong>Información:</strong> Smith y Johnson, publicado en 2024</p>
+          
+          <div class="quiz-question" id="quiz2">
+            <label class="quiz-option">
+              <input type="radio" name="q2" value="a">
+              (Smith y Johnson, 2024)
+            </label>
+            
+            <label class="quiz-option">
+              <input type="radio" name="q2" value="b">
+              (Smith & Johnson, 2024)
+            </label>
+            
+            <label class="quiz-option">
+              <input type="radio" name="q2" value="c">
+              (Smith et al., 2024)
+            </label>
+          </div>
+          
+          <button class="btn btn-primary" onclick="checkQuiz('quiz2', 'b')">Verificar respuesta</button>
+          <div id="quiz2-feedback" style="margin-top: 15px; display: none;"></div>
+        </div>
+
+        <h4 style="margin-top: 40px;">📝 Ejemplo de párrafo completo con citas APA</h4>
+        <div class="code-example">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre>La importancia de las citas académicas ha sido ampliamente documentada en la literatura científica. García (2023) encontró que los estudiantes que dominan las técnicas de citación obtienen mejores calificaciones en sus trabajos de investigación. Estudios adicionales confirman que "la correcta atribución de fuentes no solo previene el plagio, sino que también demuestra la profundidad de la investigación realizada" (Chen & Liu, 2024, p. 87). Estos hallazgos son consistentes con investigaciones anteriores que han mostrado una correlación positiva entre el uso apropiado de citas y el éxito académico (Johnson et al., 2022; Rodriguez & Martinez, 2023).</pre>
+        </div>
+
+        <h4 style="margin-top: 24px;">📚 Ejemplo de lista de referencias</h4>
+        <div class="code-example">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre>Referencias
+
+Chen, L., & Liu, X. (2024). Academic integrity in the digital age. Journal of Educational Ethics, 15(3), 78-95. https://doi.org/10.1080/jedeth.2024.123456
+
+García, M. (2023). Metodología de la investigación académica (3ª ed.). Pearson.
+
+Johnson, K., Smith, R., & Davis, P. (2022). Citation practices among undergraduate students: A longitudinal study. Higher Education Research Quarterly, 28(4), 234-251. https://doi.org/10.1007/s11164-022-4321-1
+
+Rodriguez, A., & Martinez, C. (2023). The impact of proper citation training on academic performance. Educational Psychology Review, 35(2), 445-467. https://doi.org/10.1007/s10648-023-9876-5</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Reference Card -->
+    <section class="card" style="margin: 48px 0;">
+      <h2 style="font-size: 1.75rem; margin-bottom: 24px;">
+        🚀 Referencia rápida APA
+      </h2>
+      
+      <div class="grid grid-cols-2">
+        <div class="card">
+          <h4>📖 Citas en texto más comunes</h4>
+          <div class="code-example">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>Un autor: (García, 2023)
+Dos autores: (Smith & Jones, 2024)
+Tres o más: (Chen et al., 2022)
+Sin autor: ("Título," 2023)
+Con página: (López, 2024, p. 45)
+Narrativa: García (2023) encontró...</pre>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h4>📚 Tipos de referencias frecuentes</h4>
+          <div class="code-example">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>Libro: Autor. (Año). Título. Editorial.
+Artículo: Autor. (Año). Título. Revista, Vol(Núm), pp.
+Web: Autor. (Fecha). Título. Sitio. URL
+Capítulo: Autor. (Año). Título. En Editor (Ed.), Libro (pp.). Editorial.</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Add the JavaScript functions -->
+  <script>
+    // Tab functionality
+    function showTab(section, tab) {
+      // Hide all tab panes for this section
+      const panes = document.querySelectorAll(`[id^="${section}-"]`);
+      panes.forEach(pane => pane.classList.remove('active'));
+      
+      // Remove active class from all nav pills in this section
+      const parentSection = document.querySelector(`#${section}-${tab}`).closest('.card');
+      const pills = parentSection.querySelectorAll('.nav-pill');
+      pills.forEach(pill => pill.classList.remove('active'));
+      
+      // Show selected tab
+      document.getElementById(`${section}-${tab}`).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // Accordion functionality
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const isActive = item.classList.contains('active');
+      
+      // Close all accordion items
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Open clicked item if it wasn't active
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // Copy code functionality
+    function copyCode(button) {
+      const code = button.nextElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const originalText = button.textContent;
+        button.textContent = '¡Copiado!';
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Quiz functionality
+    function checkQuiz(quizId, correctAnswer) {
+      const quiz = document.getElementById(quizId);
+      const selected = document.querySelector(`input[name="${quizId.replace('quiz', 'q')}"]:checked`);
+      const feedback = document.getElementById(`${quizId}-feedback`);
+      
+      if (!selected) {
+        feedback.style.display = 'block';
+        feedback.innerHTML = '<p style="color: var(--warning);">⚠️ Por favor selecciona una respuesta</p>';
+        return;
+      }
+      
+      if (selected.value === correctAnswer) {
+        quiz.classList.add('correct');
+        quiz.classList.remove('incorrect');
+        feedback.style.display = 'block';
+        feedback.innerHTML = '<p style="color: var(--success);">✅ ¡Correcto! Excelente trabajo</p>';
+      } else {
+        quiz.classList.add('incorrect');
+        quiz.classList.remove('correct');
+        feedback.style.display = 'block';
+        feedback.innerHTML = '<p style="color: var(--danger);">❌ Incorrecto. La opción correcta usa la inicial del nombre y el formato APA estándar.</p>';
+      }
+    }
+
+    // Utility functions
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+
+    function openGenerator() {
+      // This would scroll to a generator section if it existed
+      alert('Función de generador en desarrollo. ¡Próximamente disponible!');
+    }
+  </script>
+</body>
+</html>
